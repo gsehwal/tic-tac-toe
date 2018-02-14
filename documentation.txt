@@ -1,0 +1,59 @@
+1.Checkex() Function 
+
+Checkex stands for 'check existing'. It has two arguments : the matrix and the position at which a value is to be set.
+It checks for that position in the matrix, and if there's any existing value, it changes a flag variable 'ex' and returns 'ex'.
+
+2.Checkmat() Function
+
+Whenever a new value is placed in the matrix by a user, checkmat() function is called before doing anything further.
+It has four arguments : the current matrix, integer variable 'p' that tells which user wins, character variable 'ch' that is the original choice of user1 for 'O' or 'X', integer variable 'event'.
+Checkmat() function checks the current matrix for any possible winning combinations and  if there is, it changes a flag variable.
+
+3.End() Function
+
+End function is responsible for handling the aftermath of the game, whether a player wins the match or the match ends in a draw.
+
+4.Initialize() Function
+
+It accepts a blank 3x3 matrix and initializes it with '.' dots.
+
+5.Names() Function
+
+Before staring any game(Multiplayer/CPU), it asks for the names of the players that will be displayed during the game.
+
+6.Select() Function
+
+This function handles the control from the title screen.
+
+7.Player() Function
+
+It is used in the Single Player mode. It accepts a counter variable that keeps a record of the number of moves and asks the user to enter a new value if counter is less than 9. When the user enters a value, it increments the counter and passes the matrix to the cpu() function. When cpu() function decides a move then it receives the current matrix and passes it to checkmat() function. This process keeps on till the matrix gets filled or someone wins.
+
+8.Cpu() Function
+
+It accepts the current matrix and counter variable from player() function and passes the matrix to checkmat() function and if counter is less than 9 and no winning combination is found, then it increments the counter and passes the matrix and counter variable to cpumove() function that is responsible for making any move. 
+
+9.Cpumove() Function
+
+It analyses the matrix and makes a move based on the following :
+1. If the CPU can win in this move, then make that move.
+2. If the User can win in his next move, block it.
+3. Otherwise choose any safe position ( Center > Corners > others)
+
+10.Player1() Function
+
+When 'Play with Friend' is selected from the title screen and names() function has its job, this functions gets called first. It accepts the blank matrix and the counter variable and asks the first user to make a move and increments the counter when a user makes a move. Then it passes the matrix and counter to player2() function. When the second player makes a move it receives the matrix and passes it to checkmat() function.
+
+
+11.Player2() Function
+
+It receives the matrix and counter from player1() function and before doing anything further, it passes the matrix to checkmat() function. If counter is less than 9, it asks the second user to make a move. If second user makes a move, it increments the counter and passes the matrix and counter variable to player1() function. This process keeps on till the end.
+
+12.Main() Function 
+
+The main matrix (3x3) and the counter variable are declared here. Then using the file handling feature, the contents of a text file are displayed on the title screen. Then it displays the main menu of the game and asks the user for his choice. 
+
+
+
+
+
